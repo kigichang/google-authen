@@ -15,13 +15,14 @@ import javax.crypto.spec.SecretKeySpec;
  */
 public class Main {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, Base32String.DecodingException {
 		
 		// 幫使用者隨機產生一組 key，要記錄下來！
 		final String plant_secret = "TestTest";
 		
 		// 將 key 用 Base32 編碼
 		final String encoded_secret = Base32String.encode(plant_secret.getBytes());
+		System.out.println(encoded_secret);
 		
 		String url = getUrl("account", "FEEC", encoded_secret);
 		
